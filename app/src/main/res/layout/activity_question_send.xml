@@ -61,15 +61,36 @@
         android:background="#d3d3d3"
         android:layout_centerHorizontal="true"/>
 
+    <TextView
+        android:id="@+id/textFav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ButtonFav"
+        android:layout_alignParentStart="true"
+        android:text="お気に入り" />
+
+    <ToggleButton
+        android:id="@+id/ButtonFav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/sendButton"
+        android:layout_marginBottom="27dp"
+        android:layout_marginEnd="18dp"
+        android:layout_toStartOf="@+id/imageView"
+        android:textOn="ON"
+        android:textOff="OFF"
+        android:disabledAlpha="0.5"
+        />
+
     <Button
+        android:id="@+id/sendButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="投稿"
-        android:textColor="@color/colorButtonText"
-        android:background="@drawable/custom_button"
-        android:id="@+id/sendButton"
-        android:layout_below="@+id/imageView"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/custom_button"
+        android:text="投稿"
+        android:textColor="@color/colorButtonText" />
 
 </RelativeLayout>
