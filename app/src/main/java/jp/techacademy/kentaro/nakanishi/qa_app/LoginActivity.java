@@ -3,7 +3,6 @@ package jp.techacademy.kentaro.nakanishi.qa_app;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.hardware.fingerprint.FingerprintManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.Snackbar;
@@ -15,7 +14,14 @@ import android.widget.EditText;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,8 +33,8 @@ public class LoginActivity extends AppCompatActivity {
     EditText mNameEditText;
     ProgressDialog mProgress;
 
-    FirebaseAuthException mAuth;
-    OnCompleteListener<FingerprintManager.AuthenticationResult> mCreateAccountListener;
+    FirebaseAuth mAuth;
+    OnCompleteListener<AuthResult> mCreateAccountListener;
     OnCompleteListener<AuthResult> mLoginListener;
     DatabaseReference mDataBaseReference;
 
