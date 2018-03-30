@@ -63,7 +63,8 @@ public class MainActivity extends AppCompatActivity {
                     String answerBody = (String) temp.get("body");
                     String answerName = (String) temp.get("name");
                     String answerUid = (String) temp.get("uid");
-                    Answer answer = new Answer(answerBody, answerName, answerUid, (String) key);
+                    String answerFav = (String) temp.get("favorite");
+                    Answer answer = new Answer(answerBody, answerName, answerUid, (String) key, answerFav);
                     answerArrayList.add(answer);
                 }
             }
@@ -89,7 +90,8 @@ public class MainActivity extends AppCompatActivity {
                             String answerBody = (String) temp.get("body");
                             String answerName = (String) temp.get("name");
                             String answerUid = (String) temp.get("uid");
-                            Answer answer = new Answer(answerBody, answerName, answerUid, (String) key);
+                            String answerFav = (String) temp.get("favorite");
+                            Answer answer = new Answer(answerBody, answerName, answerUid, (String) key, answerFav);
                             question.getAnswers().add(answer);
                         }
                     }

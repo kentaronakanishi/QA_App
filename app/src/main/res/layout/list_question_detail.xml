@@ -22,6 +22,26 @@
         android:layout_toEndOf="@+id/imageView" />
 
     <TextView
+        android:id="@+id/textFav2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bodyTextView"
+        android:layout_toEndOf="@+id/imageView"
+        android:text="お気に入り"
+        android:textSize="10sp" />
+
+    <ToggleButton
+        android:id="@+id/buttonFav"
+        android:layout_width="@android:dimen/app_icon_size"
+        android:layout_height="36dip"
+        android:layout_below="@+id/textFav2"
+        android:layout_toEndOf="@+id/imageView"
+        android:disabledAlpha="0.5"
+        android:textOff="OFF"
+        android:textOn="ON"
+        android:textSize="10sp" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"

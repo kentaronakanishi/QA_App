@@ -23,8 +23,10 @@ import android.util.Base64;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ToggleButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseError;
@@ -46,6 +48,10 @@ public class QuestionSendActivity extends AppCompatActivity implements View.OnCl
     private EditText mBodyText;
     private ImageView mImageView;
     private Button mSendButton;
+    private ToggleButton toggle;
+
+    //お気に入りのタグを入れる箱
+    String fav;
 
     private int mGenre;
     private Uri mPictureUri;
@@ -70,6 +76,8 @@ public class QuestionSendActivity extends AppCompatActivity implements View.OnCl
 
         mImageView = (ImageView) findViewById(R.id.imageView);
         mImageView.setOnClickListener(this);
+
+        toggle = (ToggleButton) findViewById(R.id.ButtonFav);
 
         mProgress = new ProgressDialog(this);
         mProgress.setMessage("投稿中...");
@@ -153,6 +161,18 @@ public class QuestionSendActivity extends AppCompatActivity implements View.OnCl
             String title = mTitleText.getText().toString();
             String body = mBodyText.getText().toString();
 
+            //お気に入りボタンのOn/OffでStringの文字を変える
+            toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if (isChecked) {
+                        fav = "fav";
+                    } else {
+                        fav = "else";
+                    }
+                }
+            });
+
             if (title.length() == 0) {
                 // 質問が入力されていない時はエラーを表示するだけ
                 Snackbar.make(v, "タイトルを入力して下さい", Snackbar.LENGTH_LONG).show();
@@ -172,6 +192,7 @@ public class QuestionSendActivity extends AppCompatActivity implements View.OnCl
             data.put("title", title);
             data.put("body", body);
             data.put("name", name);
+            data.put("fav",fav);
 
             // 添付画像を取得する
             BitmapDrawable drawable = (BitmapDrawable) mImageView.getDrawable();

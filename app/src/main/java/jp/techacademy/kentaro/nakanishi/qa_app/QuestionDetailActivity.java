@@ -44,7 +44,7 @@ public class QuestionDetailActivity extends AppCompatActivity {
             String uid = (String) map.get("uid");
             String fav = (String) map.get("fav");
 
-            Answer answer = new Answer(body, name, uid, answerUid ,fav);
+            Answer answer = new Answer(body, name, uid, answerUid,fav);
             mQuestion.getAnswers().add(answer);
             mAdapter.notifyDataSetChanged();
         }
