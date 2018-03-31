@@ -87,11 +87,16 @@ public class LoginActivity extends AppCompatActivity {
                     if (mIsCreateAccount) {
                         // アカウント作成の時は表示名をFirebaseに保存する
                         String name = mNameEditText.getText().toString();
+                        String muid = user.getUid();
 
 
                         Map<String, String> data = new HashMap<String, String>();
                         data.put("name", name);
                         userRef.setValue(data);
+                        data.put("uid", muid);
+                        userRef.setValue(data);
+
+
 
                         // 表示名をPrefarenceに保存する
                         saveName(name);
@@ -207,4 +212,6 @@ public class LoginActivity extends AppCompatActivity {
         editor.putString(Const.NameKEY, name);
         editor.commit();
     }
+
+
 }
